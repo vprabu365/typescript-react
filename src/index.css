@@ -165,9 +165,10 @@ body {
   flex-direction: column;
   align-items: center;
   background: #1a1a40;
-  width: 40%;
+  max-width: 40%;
   margin: 5rem auto;
-  height: 100vh;
+  height: 150vh;
+  overflow-y: auto;
   border-radius: 5px;
 }
 .form--container > h3 {
@@ -196,4 +197,82 @@ body {
   background-color: #8758ff;
   border: none;
   cursor: pointer;
+}
+
+.todos-section {
+  display: flex;
+  align-items: center;
+  color: white;
+  margin-top: 5rem;
+  border-radius: 5px;
+  padding: 1rem;
+  width: 75%;
+  height: 9vh;
+  background-color: #8758ff;
+}
+.todos-section p {
+  flex: 1;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 1rem;
+}
+.icons {
+  display: flex;
+  margin-bottom: 0.5rem;
+  gap: 14px;
+  cursor: pointer;
+}
+.edit-todo {
+  display: flex;
+  background: #1a1a40;
+  color: white;
+  margin-right: 15px;
+  width: 22rem;
+  border: none;
+}
+
+.update-items {
+  display: flex;
+}
+
+.update-input {
+  background-color: #1a1a40;
+  border: 2px none #8758ff;
+  margin-right: auto;
+  color: white;
+  padding: 16px 10px;
+  width: 22rem;
+  margin-left: -14px;
+  border-radius: 3px;
+  outline: none;
+}
+.button-update {
+  margin-left: 8px;
+  background-color: #8758ff;
+  border: none;
+}
+.toaster {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #32ad61;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Toaster animation when shown */
+.toaster.show {
+  opacity: 1;
+}
+
+.empty--value {
+  margin-right: 20rem;
+  margin-top: 10px;
+  color: white;
 }
