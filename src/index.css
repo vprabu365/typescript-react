@@ -5,12 +5,6 @@ body {
   width: 100%;
 }
 
-.active {
-  background-color: #adb2be;
-}
-.active:not(.custom-cart-icon) {
-  background: #0f172a;
-}
 nav {
   display: flex;
   text-decoration: none;
@@ -20,17 +14,17 @@ nav {
   top: 0;
   position: sticky;
 }
-nav .title {
-  font-size: 1.5rem;
-  margin: 1rem;
-  font-weight: bold;
-  text-decoration: none;
+.custom-home {
+  padding-bottom: 23px;
+  height: 55px;
+  width: 80px;
   color: white;
 }
 nav ul {
   display: flex;
   gap: 2rem;
-  padding: 0 35px;
+  padding: 0 25px;
+  margin-top: 3px;
 }
 
 nav ul li {
@@ -38,14 +32,14 @@ nav ul li {
 }
 nav ul li a {
   display: block;
-  margin-top: 10px;
+  margin-top: 15px;
   text-decoration: none;
   color: white;
-  padding: 0.5rem 35px;
+  padding: 0.5rem 25px;
   border-radius: 0.5rem;
 }
 nav ul li a:not(.active):hover {
-  background-color: #7b87b0;
+  background-color: #073ded;
 }
 
 nav .menu {
@@ -57,6 +51,7 @@ nav .menu {
   justify-content: space-between;
   width: 2.5rem;
   height: 2rem;
+  cursor: pointer;
 }
 nav .menu span {
   height: 0.4rem;
@@ -65,7 +60,7 @@ nav .menu span {
   border-radius: 0.2rem;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   nav .menu {
     display: flex;
     margin-top: 9px;
@@ -79,20 +74,42 @@ nav .menu span {
     flex-direction: column;
     width: 100%;
     margin-bottom: 0.25rem;
+    /* opacity: 0; Initially set opacity to 0 */
+    transition: max-height 10.5s ease;
   }
   nav ul.open {
     display: flex;
+    transition: max-height 10.5s ease;
+    /* animation: fadeIn 10.5s ease forwards; */
+  }
+  nav ul.close {
+    display: flex;
+    transition: max-height 10.5s ease;
+    /* animation: fadeIn 10.5s ease forwards; */
   }
   nav ul li {
-    width: 100%;
     text-align: center;
   }
   nav ul li a {
-    margin: 0.2rem 0.5rem;
+    margin: 0.5rem 0.5rem;
+  }
+  nav .cart {
+    margin: auto;
   }
 }
-.custom-cart-icon {
-  margin-top: 13px;
-  height: 2.2rem;
+nav ul .custom-cart-icon {
+  height: 1.9rem;
   width: 2.3rem;
+}
+
+nav ul .cart {
+  margin-top: 1.2rem;
+  color: white;
+}
+.active:not(nav ul li:last-child) {
+  background: none;
+}
+
+nav ul li:last-child a:hover {
+  background: none;
 }

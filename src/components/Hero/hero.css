@@ -1,0 +1,63 @@
+.hero--container {
+  display: flex;
+  padding: 20px;
+  margin: auto;
+  align-items: center;
+  justify-content: space-between;
+  background: radial-gradient(#fceabb, #f8b500);
+  width: 70%;
+  height: 70vh;
+  border-radius: 8px;
+}
+.title {
+  display: flex;
+  padding-top: 20px;
+  justify-content: center;
+  margin-right: 39rem;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  color: #191919;
+}
+
+.hero--container button,
+.hero--container img {
+  border: none;
+  background: none;
+  padding: 30px;
+}
+.hero--container button {
+  margin: 0 auto;
+}
+.hero--container button svg {
+  width: 30px;
+  height: 40px;
+  cursor: pointer;
+}
+img {
+  width: 700px;
+  height: 70vh;
+  border-radius: 40px;
+}
+
+@media (max-width: 600px) {
+  .hero--container {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 30px;
+    width: 100%;
+    margin-top: 29px;
+  }
+
+  .title {
+    display: flex;
+    margin: auto 20px;
+  }
+  .hero--container img {
+    height: 60vh;
+    width: 86%;
+    border-radius: 10px;
+  }
+  .hero--container button svg {
+    width: 30px;
+  }
+}

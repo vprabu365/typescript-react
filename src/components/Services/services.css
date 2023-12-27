@@ -1,0 +1,37 @@
+.service--container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10rem;
+  cursor: pointer;
+}
+.btn-dark {
+  width: 30%;
+}
+
+.modal--container {
+  display: flex;
+  position: relative;
+  bottom: 92px;
+  border: 5px solid red;
+  height: 40vh;
+  width: 50%;
+  background-color: black;
+}
+
+.modal--container h2,
+.btn-close {
+  color: white;
+  margin: auto;
+}
+.btn-close {
+  margin: 20px;
+  background-color: rgb(249, 246, 246);
+}
+
+@media (max-width: 700px) {
+  .modal--container {
+    display: flex;
+    width: 400px;
+  }
+}
