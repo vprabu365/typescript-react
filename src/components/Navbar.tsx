@@ -16,8 +16,8 @@ const Navbar = () => {
     },
     {
       id: crypto.randomUUID(),
-      route: "/services",
-      name: "Services",
+      route: "/sidebar",
+      name: "Sidebar",
     },
   ]);
   return (
