@@ -21,8 +21,7 @@ const Home = () => {
       current === heroImages.length - 1 ? 0 : current + 1
     );
   };
-  // const changeSlid;
-
+ 
   return (
     <div>
       <h2 className="title">Welcome, Shop online now! </h2>

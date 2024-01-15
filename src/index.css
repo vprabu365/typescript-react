@@ -106,10 +106,10 @@ nav ul .cart {
   margin-top: 1.2rem;
   color: white;
 }
-.active:not(nav ul li:last-child) {
+/* .active:not(nav ul li:last-child) {
   background: none;
 }
 
 nav ul li:last-child a:hover {
   background: none;
-}
+} */

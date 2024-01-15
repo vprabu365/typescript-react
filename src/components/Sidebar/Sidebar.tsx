@@ -4,45 +4,25 @@ import { FaTimes } from "react-icons/fa";
 import "./sidebar.css";
 import { links } from "./data";
 import logo from "./logo.svg";
-import { useGlobalContext } from "./context";
+import { useGlobalContext } from "../../context";
+import App from "../Modal/App";
 
 const Sidebar = () => {
   const { showSideBar, openSideBar, closeSideBar } = useGlobalContext();
 
-  // const [showSideBar, setShowSideBar] = useState(false);
-    // const [sidebarHeight, setSidebarHeight] = useState(0);
-    // const sidebarRef = useRef(null);
-
-    // useEffect(() => {
-    //   if (sidebarRef.current) {
-    //     const { scrollHeight } = sidebarRef.current;
-    //     setSidebarHeight(scrollHeight);
-    //   }
-    // }, []);
-
   return (
-    <aside className="main-container">
-      <button
-        className="menu-toggle"
-        onClick={openSideBar}
-      >
+    <div className="main-container">
+      <button className="menu-toggle" onClick={openSideBar}>
         <RxHamburgerMenu />
       </button>
-      <div
-        className={`sidebar ${showSideBar ? "sidebar-open" : ""}`}
-        // style={{ height: `${sidebarHeight}px` }}
-      >
+      <div className={`sidebar ${showSideBar ? "sidebar-open" : ""}`}>
         <div className="sidebar-header">
           <img src={logo} className="logo" alt="coding addict" />
-          <button
-            className="close-btn"
-            onClick={closeSideBar}
-            // onClick={() => setShowSideBar(false)}
-          >
+          <button className="close-btn" onClick={closeSideBar}>
             <FaTimes />
           </button>
         </div>
-        <ul className={`links`}>
+        <ul className="links">
           {links.map((link) => {
             return (
               <li key={link.id}>
@@ -55,7 +35,8 @@ const Sidebar = () => {
           })}
         </ul>
       </div>
-    </aside>
+      <App />
+    </div>
   );
 };
 
