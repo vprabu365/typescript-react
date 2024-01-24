@@ -1,0 +1,40 @@
+h1 {
+  margin: 25px;
+  text-align: center;
+}
+.shop-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.product {
+  width: 25rem;
+  /* width: calc(33.33% - 40px); */
+  margin: 30px 0;
+  text-align: center;
+}
+.product h2 {
+  margin-top: 20px;
+  font-size: 30px;
+}
+.product img {
+  height: 50vh;
+  width: 22rem;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 600px) {
+  .product {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+  .product button {
+    width: 150px;
+   
+  }
+}

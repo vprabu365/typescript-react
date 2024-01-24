@@ -1,48 +1,50 @@
 import React, { useContext } from "react";
-import items from "../Product/data";
-import { ShopContext } from "../../components/context";
-import Item from "../Item/Item";
+import data from "../Shop/data";
+import Product from "../Shop/Product/Product";
+import { ShopContext } from "../Shop/ShopContextProvider";
 import "./cart.css";
 
 const Cart = () => {
-  const { cartItems, addToCart, removeItemFromCart, calculateTotalPrice } =
-    useContext(ShopContext);
+  const {
+    cartItems,
+    calculateTotalPrice,
+    addToCart,
+    removeFromCart,
+    updateCartItemCount,
+    getItemCount,
+  } = useContext(ShopContext);
   const totalAmount = calculateTotalPrice();
+  const itemCount = getItemCount();
+
   return (
     <div className="cart-container">
-      <h1>Your Items </h1>
-      {items.map((item) => {
-        if (cartItems[item.id] > 0) {
+      <h1>Your Items</h1>
+      {data.map((product) => {
+        if (cartItems[product.id] > 0) {
           return (
-            <div className="cart-item" key={item.id}>
-              <Item
-                id={item.id}
-                name={item.title}
-                price={item.price}
-                productImage={item.img}
-                inCart
-              />
-              <div className="countHandler">
-                <button
-                  className="removebtn"
-                  onClick={() => removeItemFromCart(item.id)}
-                >
-                  -
-                </button>
-                <input value={cartItems[item.id]} readOnly />
-                <button
-                  className="removebtn"
-                  onClick={() => addToCart(item.id)}
-                >
-                  +
-                </button>
+            <div className="cart-item" key={product.id}>
+              <Product {...product} showAddToCartButton={false} />
+              <div className="quantity-controls">
+                <button onClick={() => removeFromCart(product.id)}> - </button>
+                <input
+                  value={cartItems[product.id]}
+                  onChange={(e) =>
+                    updateCartItemCount(Number(e.target.value), product.id)
+                  }
+                />
+                <button onClick={() => addToCart(product.id)}> + </button>
               </div>
             </div>
           );
         }
       })}
       {Object.values(cartItems).some((value) => value >= 1) && (
-        <p className="totalprice">Total price is {totalAmount}</p>
+        <div className="totalprice">
+          <p>
+            Subtotal ({itemCount}
+            {itemCount === 1 ? " item" : " items"}): <b>${totalAmount}</b>
+          </p>
+        </div>
       )}
     </div>
   );
