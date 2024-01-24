@@ -1,0 +1,108 @@
+.search--container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+  max-width: 60%;
+  margin: 50px auto;
+  padding: 40px;
+  background-color: rgb(233, 228, 228);
+  box-shadow: 8px 9px 8px rgba(0, 0, 0, 0.1);
+}
+.form--section {
+  display: flex;
+  gap: 2px;
+}
+.form--section input {
+  padding-left: 20px;
+  width: 40rem;
+  height: 50px;
+  outline: none;
+  background-color: rgb(244, 239, 239);
+  border-radius: 4px;
+}
+.btn-primary {
+  width: 7rem;
+}
+.grocerylist--container {
+  display: flex;
+  margin: auto;
+  margin-top: 40px;
+  width: 40rem;
+  height: auto;
+  max-width: 50rem;
+  /* background-color: white; */
+}
+.grocery-item {
+  display: flex;
+  align-items: center;
+  width: 40rem;
+  height: auto;
+  max-width: 50rem;
+  margin-bottom: 10px;
+}
+
+.grocery-title {
+  margin-bottom: 0;
+  max-width: 30rem;
+  margin-right: auto;
+  overflow-wrap: break-word;
+  letter-spacing: 2px;
+}
+.icon-container {
+  display: flex;
+  gap: 30px;
+}
+
+.icon-container svg {
+  height: 40px;
+  width: 20px;
+  cursor: pointer;
+}
+.icon-container .edit {
+  color: green;
+}
+.icon-container .delete {
+  color: red;
+}
+
+.grocerylist--container button {
+  width: 40px;
+  height: 40px;
+}
+
+.clear-all {
+  margin-top: 40px;
+  border: none;
+  background: none;
+  color: rgb(184, 64, 64);
+  font-size: larger;
+}
+
+@media (max-width: 1000px) {
+  .search--container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    max-width: 90%;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: rgb(233, 228, 228);
+    box-shadow: 8px 9px 8px rgba(0, 0, 0, 0.1);
+  }
+  .form--section input {
+    width: 20rem;
+  }
+  .grocery-title {
+    max-width: 18rem;
+    overflow-wrap: break-word;
+    letter-spacing: 2px;
+  }
+  .grocery-item {
+    max-width: 25rem;
+  }
+  .grocerylist--container {
+    max-width: 30rem;
+  }
+}

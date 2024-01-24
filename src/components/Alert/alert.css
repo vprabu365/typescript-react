@@ -1,0 +1,14 @@
+.alert-section p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30rem;
+  position: static;
+  margin: 40px 0;
+}
+.alert-success {
+  background-color: rgb(37, 203, 37);
+}
+.alert-danger {
+  background-color: rgb(218, 88, 88);
+}
