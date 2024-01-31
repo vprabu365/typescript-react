@@ -121,6 +121,7 @@
     top: 3rem;
     height: 13vh;
     right: 0;
+    white-space: nowrap;
   }
   .btn-checkout {
     border-radius: 0;
