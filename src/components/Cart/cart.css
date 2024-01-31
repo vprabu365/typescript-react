@@ -91,25 +91,30 @@
   .cart-item .product {
     display: flex;
     height: 30vh;
-    width: 23rem;
-    /* margin: auto; */
+    margin-top: 10px;
+    width: 23.2rem;
   }
   .cart-item .product img {
     height: 20vh;
     margin-top: 10px;
     object-fit: contain;
+    margin-right: auto;
   }
   .cart-item .details-container {
     display: flex;
-    margin-right: auto;
-    margin-left: 20px;
+    position: relative;
+    bottom: 120px;
+    left: 70px;
     align-items: center;
+  }
+  .cart-item .details-container h2 {
+    font-size: 15px;
   }
 
   .cart-item .quantity-controls {
     position: relative;
     bottom: 74px;
-    left: 25px;
+    left: 45px;
   }
   .totalprice {
     position: sticky;
