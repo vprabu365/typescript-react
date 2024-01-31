@@ -36,7 +36,7 @@ h1 {
     display: flex;
     flex-direction: column;
     margin: auto;
-    width: 8.4rem;
+    width: 6.2rem;
     padding: 20px;
     align-items: center;
     /* width: calc(33.33% - 40px); */
@@ -46,7 +46,7 @@ h1 {
 
   .product img {
     height: 35vh;
-    width: 12rem;
+    width: 10rem;
     object-fit: contain;
   }
 
