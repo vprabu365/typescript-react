@@ -43,7 +43,7 @@ img {
   .hero--container {
     display: flex;
     justify-content: space-evenly;
-    padding: 30px;
+    padding: 100px;
     width: 100%;
     margin-top: 29px;
   }
@@ -54,14 +54,13 @@ img {
   }
   .hero--container img {
     height: 50vh;
-    width: 86%;
+    width: 126%;
+
     border-radius: 10px;
     object-fit: fill;
   }
- 
-  .hero--container button,
-  .hero--container img {
-    border: none;
-    background: none;
+
+  .hero--container button {
+    padding: 0;
   }
 }

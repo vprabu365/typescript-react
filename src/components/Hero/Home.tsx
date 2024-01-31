@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./hero.css";
 import { heroImages } from "./images/data";
 
 const Home = () => {
   const [imageIndex, setImageIndex] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(nextSlide, 4000);
-    return () => clearInterval(interval);
-  }, []);
+  // useEffect(() => {
+  //   const interval = setInterval(nextSlide, 4000);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   const prevSlide = () => {
     setImageIndex((current) =>
@@ -21,7 +21,7 @@ const Home = () => {
       current === heroImages.length - 1 ? 0 : current + 1
     );
   };
- 
+
   return (
     <div>
       <h2 className="title">Welcome, Shop online now! </h2>
