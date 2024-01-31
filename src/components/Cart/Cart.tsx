@@ -40,10 +40,8 @@ const Cart = () => {
       })}
       {Object.values(cartItems).some((value) => value >= 1) && (
         <div className="totalprice">
-          <>
-            Subtotal ({itemCount}
-            {itemCount === 1 ? " item" : " items"}): <b>${totalAmount}</b>
-          </>
+          Subtotal ({itemCount}
+          {itemCount === 1 ? " item" : " items"}): <b>${totalAmount}</b>
         </div>
       )}
       {itemCount > 0 && (
