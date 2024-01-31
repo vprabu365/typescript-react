@@ -58,9 +58,10 @@ h1 {
   }
 
   .product button {
-    width: 140px;
-    height: 40px;
+    width: auto;
+    height: auto;
     font-size: 13.5px;
+    white-space: nowrap;
   }
 }
 
