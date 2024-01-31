@@ -46,6 +46,11 @@ const Search = () => {
       setValue("");
     }
   };
+  const deleteItem = (id: any) => {
+    const removeItem = list.filter((item: any) => item.id !== id);
+    setList(removeItem);
+    showAlert(true, "danger", "Item removed");
+  };
 
   const editItem = (id: any) => {
     const getItemToEdit = list.find((item: any) => item.id === id);
@@ -83,7 +88,7 @@ const Search = () => {
 
       {list.length > 0 && (
         <div className="grocerylist--container">
-          <List items={list} editItems={editItem} />
+          <List items={list} editItems={editItem} deleteItems={deleteItem} />
         </div>
       )}
       <button className="clear-all" onClick={clearAllItems}>
