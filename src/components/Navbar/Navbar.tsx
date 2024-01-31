@@ -5,7 +5,7 @@ import { ShopContext } from "../Shop/ShopContextProvider";
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const { getItemCount } = useContext(ShopContext);
-  const cartItemCount = getItemCount();
+  const cartItemCount: any = getItemCount();
 
   const [links] = useState([
     {

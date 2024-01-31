@@ -14,7 +14,7 @@ const Cart = () => {
     getItemCount,
   } = useContext(ShopContext);
   const totalAmount = calculateTotalPrice();
-  const itemCount = getItemCount();
+  const itemCount: any = getItemCount();
 
   return (
     <div className="cart-container">
@@ -46,7 +46,9 @@ const Cart = () => {
           </>
         </div>
       )}
-      <button className="btn-checkout btn btn-warning">Proceed to checkout</button>
+      <button className="btn-checkout btn btn-warning">
+        Proceed to checkout
+      </button>
     </div>
   );
 };

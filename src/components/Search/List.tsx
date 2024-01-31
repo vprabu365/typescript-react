@@ -10,7 +10,7 @@ const List = ({ items, editItems }: Props) => {
 
   return (
     <div>
-      {items.map((item) => {
+      {items.map((item:any) => {
         const { id, title } = item;
         return (
           <article key={id} className="grocery-item">

@@ -5,8 +5,9 @@ import List from "./List";
 
 const getLocalStorage = () => {
   const list = localStorage.getItem("ITEMS");
+  const storedItems = localStorage.getItem("ITEMS");
   if (list) {
-    return JSON.parse(localStorage.getItem("ITEMS"));
+    return storedItems ? JSON.parse(storedItems) : null;
   } else {
     return [];
   }
@@ -21,14 +22,14 @@ const Search = () => {
     type: "",
     message: "",
   });
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     if (!value) {
       showAlert(true, "danger", "Please enter a value");
     } else if (value && isEditing) {
       showAlert(true, "success", "Item updated");
       setList(
-        list.map((item) => {
+        list.map((item: any) => {
           if (item.id === editID) {
             return { ...item, title: value };
           }
@@ -47,7 +48,7 @@ const Search = () => {
   };
 
   const editItem = (id: any) => {
-    const getItemToEdit = list.find((item) => item.id === id);
+    const getItemToEdit = list.find((item: any) => item.id === id);
     setisEditing(true);
     setEditId(getItemToEdit?.id);
     setValue(getItemToEdit?.title);

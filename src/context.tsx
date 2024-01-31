@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useState, useContext, ReactNode } from "react";
 
 type ContextProps = {
   showSideBar: boolean;
@@ -18,9 +18,13 @@ const defaultValues: ContextProps = {
   closeModal: () => {},
 };
 
+type AppProviderProps = {
+  children: ReactNode;
+};
+
 const AppContext = createContext<ContextProps>(defaultValues);
 
-const AppProvider: React.FC = ({ children }) => {
+const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
   const [showSideBar, setShowSideBar] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
