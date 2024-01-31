@@ -18,7 +18,7 @@ const Cart = () => {
 
   return (
     <div className="cart-container">
-      <h1>Your Items</h1>
+      <h1>{itemCount > 0 ? "Your Items" : "Cart is empty"}</h1>
       {data.map((product) => {
         if (cartItems[product.id] > 0) {
           return (
@@ -40,12 +40,13 @@ const Cart = () => {
       })}
       {Object.values(cartItems).some((value) => value >= 1) && (
         <div className="totalprice">
-          <p>
+          <>
             Subtotal ({itemCount}
             {itemCount === 1 ? " item" : " items"}): <b>${totalAmount}</b>
-          </p>
+          </>
         </div>
       )}
+      <button className="btn-checkout btn btn-warning">Proceed to checkout</button>
     </div>
   );
 };

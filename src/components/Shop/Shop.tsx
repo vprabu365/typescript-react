@@ -1,14 +1,18 @@
-import React from "react";
-import data from "./data";
+import React, { useContext } from "react";
+import MultiSelect from "../MultiSelect/MultiSelect";
 import Product from "./Product/Product";
+import { ShopContext } from "./ShopContextProvider";
 import "./shop.css";
 
 const Shop = () => {
+  const { sortedProducts } = useContext(ShopContext);
+
   return (
     <div>
       <h1>Welcome</h1>
+      <MultiSelect />
       <div className="shop-container">
-        {data.map((product) => {
+        {sortedProducts.map((product) => {
           return <Product key={product.id} {...product} />;
         })}
       </div>

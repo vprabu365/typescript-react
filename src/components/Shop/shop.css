@@ -1,6 +1,8 @@
 h1 {
+  font-weight: 800;
   margin: 25px;
   text-align: center;
+ color: #d6c042;
 }
 .shop-container {
   display: flex;
@@ -25,16 +27,37 @@ h1 {
 }
 
 @media screen and (max-width: 600px) {
-  .product {
+  .shop-container {
     display: flex;
-    flex-direction: column;
-    margin: auto;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 50px;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
+  .product {
+    width: 15rem;
+    /* width: calc(33.33% - 40px); */
+    margin: 30px 0;
+    text-align: center;
+  }
+
+  .product img {
+    height: 25vh;
+    width: 15rem;
+    object-fit: contain;
+  }
+
+  .product h2 {
+    margin-top: 20px;
+    font-size: 15px;
+    font-weight: 700;
+  }
+
   .product button {
     width: 150px;
-   
   }
+}
+
+.selects {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
 }

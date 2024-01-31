@@ -1,0 +1,14 @@
+.multiselect {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  width: 290px;
+}
+.multiselect h3 {
+  font-size: 20px;
+  white-space: nowrap;
+}
+.selectmultiple {
+  height: 40px;
+  width: 220px;
+}

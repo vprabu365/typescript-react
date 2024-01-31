@@ -1,13 +1,29 @@
 import React, { createContext, useState, ReactNode, useEffect } from "react";
 import data from "./data";
 
+export const sortProductsByPrice = (products: any[], order: string) => {
+  const sortedProducts = [...products];
+
+  if (order === "lowToHigh") {
+    sortedProducts.sort((a, b) => a.price - b.price);
+  } else if (order === "highToLow") {
+    sortedProducts.sort((a, b) => b.price - a.price);
+  }
+
+  return sortedProducts;
+};
+
 type ContextProps = {
   cartItems: { [itemId: number]: number };
   addToCart: (itemId: number) => void;
   removeFromCart: (itemId: number) => void;
-  getItemCount: () => number;
+  getItemCount: () => number | { [key: string]: any };
   calculateTotalPrice: () => number;
   updateCartItemCount: (newAmount: number, itemId: number) => void;
+  sortBy: string;
+  setSortBy: React.Dispatch<React.SetStateAction<string>>;
+  sortedProducts: any[];
+  handleSortChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 };
 const defaultValues: ContextProps = {
   cartItems: {},
@@ -16,6 +32,10 @@ const defaultValues: ContextProps = {
   getItemCount: () => 0,
   calculateTotalPrice: () => 0,
   updateCartItemCount: () => {},
+  sortBy: "",
+  setSortBy: () => {},
+  sortedProducts: [],
+  handleSortChange: () => {},
 };
 
 type ShopContextProviderProps = {
@@ -43,19 +63,24 @@ export const ShopContextProvider: React.FC<ShopContextProviderProps> = ({
     return storedCart ? JSON.parse(storedCart) : getDefaultCart();
   });
 
+  const [sortBy, setSortBy] = useState("");
+
+  const [sortedProducts, setSortedProducts] = useState(data);
+
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
-  }, [cartItems]);
+    setSortedProducts(sortProductsByPrice(data, sortBy));
+  }, [cartItems, data, sortBy]);
 
   const addToCart = (itemId: number) => {
-    setCartItems((current) => ({
+    setCartItems((current: any) => ({
       ...current,
       [itemId]: (current[itemId] || 0) + 1,
     }));
   };
 
   const removeFromCart = (itemId: number) => {
-    setCartItems((current) => ({
+    setCartItems((current: any) => ({
       ...current,
       [itemId]: Math.max(0, (current[itemId] || 0) - 1),
     }));
@@ -63,14 +88,14 @@ export const ShopContextProvider: React.FC<ShopContextProviderProps> = ({
 
   const getItemCount = () => {
     const totalItems = Object.values(cartItems).reduce(
-      (acc, curr) => acc + curr,
+      (acc: any, curr: any) => acc + curr,
       0
     );
     return totalItems || 0;
   };
 
-  const updateCartItemCount = (newAmount, itemId) => {
-    setCartItems((prev) => ({ ...prev, [itemId]: newAmount }));
+  const updateCartItemCount = (newAmount: number, itemId: number) => {
+    setCartItems((prev: any) => ({ ...prev, [itemId]: newAmount }));
   };
 
   const calculateTotalPrice = () => {
@@ -78,10 +103,16 @@ export const ShopContextProvider: React.FC<ShopContextProviderProps> = ({
     for (const itemId in cartItems) {
       if (cartItems[itemId] > 0) {
         const itemInfo = data.find((item) => item.id === Number(itemId));
-        totalAmount += cartItems[itemId] * itemInfo?.price;
+        if (itemInfo) {
+          totalAmount += cartItems[itemId] * itemInfo.price;
+        }
       }
     }
     return parseFloat(totalAmount.toFixed(2));
+  };
+
+  const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSortBy(event.target.value);
   };
 
   return (
@@ -93,6 +124,10 @@ export const ShopContextProvider: React.FC<ShopContextProviderProps> = ({
         getItemCount,
         calculateTotalPrice,
         updateCartItemCount,
+        handleSortChange,
+        sortedProducts,
+        sortBy,
+        setSortBy,
       }}
     >
       {children}
