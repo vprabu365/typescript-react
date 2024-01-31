@@ -46,9 +46,11 @@ const Cart = () => {
           </>
         </div>
       )}
-      <button className="btn-checkout btn btn-warning">
-        Proceed to checkout
-      </button>
+      {itemCount > 0 && (
+        <button className="btn-checkout btn btn-warning">
+          Proceed to checkout
+        </button>
+      )}
     </div>
   );
 };

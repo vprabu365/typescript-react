@@ -18,11 +18,11 @@ const Navbar = () => {
       route: "/shop",
       name: "Shop",
     },
-    {
-      id: crypto.randomUUID(),
-      route: "/sidebar",
-      name: "Sidebar",
-    },
+    // {
+    //   id: crypto.randomUUID(),
+    //   route: "/sidebar",
+    //   name: "Sidebar",
+    // },
   ]);
   return (
     <nav>

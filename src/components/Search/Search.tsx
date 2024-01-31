@@ -68,7 +68,7 @@ const Search = () => {
   return (
     <section className="search--container">
       {alert.show && <Alert {...alert} removeAlert={showAlert} />}
-      <h2>Search for item</h2>
+      <h2>Items checklist</h2>
       <form className="form--section" onSubmit={handleSubmit}>
         <input
           type="text"
