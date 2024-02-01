@@ -44,10 +44,10 @@
 }
 @media (max-width: 600px) {
   .hero-section {
-    position: fixed;
+    position: absolute;
     overflow-x: hidden;
     overflow-y: auto;
-    height: 80vh;
+    height: 60vh;
   }
   .header {
     color: rgb(20, 15, 15);
