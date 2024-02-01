@@ -7,12 +7,12 @@ const Home = () => {
   const navigate = useNavigate();
   let t = 0;
 
-  const col = (ctx, x, y, r, g, b) => {
+  const col = (ctx:any, x:any, y:any, r:any, g:any, b:any) => {
     ctx.fillStyle = `rgb(${r},${g},${b})`;
     ctx.fillRect(x, y, 1, 1);
   };
 
-  const getColor = (x, y, t) => ({
+  const getColor = (x:number, y:number, t:number) => ({
     r: Math.floor(192 + 64 * Math.cos((x * x - y * y) / 300 + t)),
     g: Math.floor(
       192 +
