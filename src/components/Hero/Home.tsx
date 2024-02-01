@@ -1,57 +1,62 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef } from "react";
 import "./hero.css";
-import { heroImages } from "./images/data";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-  const [imageIndex, setImageIndex] = useState(0);
+  const canvasRef = useRef(null);
+  const navigate = useNavigate();
+  let t = 0;
 
-  // useEffect(() => {
-  //   const interval = setInterval(nextSlide, 4000);
-  //   return () => clearInterval(interval);
-  // }, []);
-
-  const prevSlide = () => {
-    setImageIndex((current) =>
-      current === 0 ? heroImages.length - 1 : imageIndex - 1
-    );
+  const col = (ctx, x, y, r, g, b) => {
+    ctx.fillStyle = `rgb(${r},${g},${b})`;
+    ctx.fillRect(x, y, 1, 1);
   };
 
-  const nextSlide = () => {
-    setImageIndex((current) =>
-      current === heroImages.length - 1 ? 0 : current + 1
-    );
+  const getColor = (x, y, t) => ({
+    r: Math.floor(192 + 64 * Math.cos((x * x - y * y) / 300 + t)),
+    g: Math.floor(
+      192 +
+        64 * Math.sin((x * x * Math.cos(t / 4) + y * y * Math.sin(t / 3)) / 300)
+    ),
+    b: Math.floor(
+      192 +
+        64 *
+          Math.sin(
+            5 * Math.sin(t / 9) +
+              ((x - 100) * (x - 100) + (y - 100) * (y - 100)) / 1100
+          )
+    ),
+  });
+
+  const run = () => {
+    const canvas: any = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+
+    for (let x = 0; x <= 25; x++) {
+      for (let y = 0; y <= 25; y++) {
+        const { r, g, b } = getColor(x, y, t);
+        col(ctx, x, y, r, g, b);
+      }
+    }
+
+    t += 0.01;
+    requestAnimationFrame(run);
   };
+
+  const handleClick = () => {
+    navigate("/shop");
+  };
+  useEffect(() => {
+    run();
+  }, []);
 
   return (
-    <div>
-      <h2 className="title">Welcome, Shop online now! </h2>
-      <section className="hero--container">
-        <button onClick={prevSlide}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            fill="currentColor"
-            className="bi bi-arrow-left-circle-fill custom-left-icon"
-            viewBox="0 0 16 16"
-          >
-            <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
-          </svg>
-        </button>
-        <img src={heroImages[imageIndex].url} key={heroImages[imageIndex].id} />
-        <button onClick={nextSlide}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            fill="currentColor"
-            className="bi bi-arrow-right-circle-fill"
-            viewBox="0 0 16 16"
-          >
-            <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z" />
-          </svg>
-        </button>
-      </section>
+    <div className="hero-section">
+      <h1 className="header">Ready to get excited?</h1>
+      <button onClick={handleClick}>Start shopping</button>
+      <p className="heroimg">Click here to explore our products</p>
+      <canvas id="canv" ref={canvasRef} width="25" height="25" />
     </div>
   );
 };

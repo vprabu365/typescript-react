@@ -2,15 +2,15 @@
 export const heroImages = [
     {
         id: 1,
-        url: "https://t3.ftcdn.net/jpg/03/35/74/56/240_F_335745675_MaxYxSsadrviZdThITuHB2oCohYOiwEu.jpg"
+        url: "https://images.unsplash.com/photo-1481437156560-3205f6a55735?q=80&w=2990&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
         id: 2,
-        url: 'https://media.istockphoto.com/id/455198283/photo/grocery-store.jpg?s=612x612&w=0&k=20&c=SlLOSnynnnDnBqTDj-QpWIvkYGnhTaHvKljyVUS4roE='
+        url: 'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=2988&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     },
     {
         id: 3,
-        url: 'https://images.unsplash.com/photo-1506617564039-2f3b650b7010?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGdyb2Nlcnl8ZW58MHx8MHx8fDA%3D'
+        url: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     },
 
 ]

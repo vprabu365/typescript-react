@@ -13,9 +13,10 @@ nav {
   background: #0f172a;
   top: 0;
   position: sticky;
-  z-index: 1000; 
+  z-index: 1000;
 }
 .custom-home {
+  margin-top: 20px;
   padding-bottom: 23px;
   height: 55px;
   width: 80px;

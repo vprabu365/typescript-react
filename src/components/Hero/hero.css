@@ -1,66 +1,73 @@
-.hero--container {
-  display: flex;
-  padding: 20px;
-  margin: auto;
-  align-items: center;
-  justify-content: space-between;
-  background: radial-gradient(#fceabb, #f8b500);
-  width: 70%;
-  height: 70vh;
-  border-radius: 8px;
-}
-.title {
-  display: flex;
-  padding-top: 20px;
-  justify-content: center;
-  margin-right: 39rem;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  color: #191919;
+#canv {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
-.hero--container button,
-.hero--container img {
+.header {
+  color: rgb(20, 15, 15);
+  z-index: 12;
+  position: relative;
+  font-size: 5.1rem;
+  line-height: 1.1;
+  max-width: 13ch;
+}
+
+.hero-section button {
+  z-index: 12;
+  position: relative;
+  background-color: rgb(89, 7, 30);
+  border-radius: 24px;
   border: none;
-  background: none;
-  padding: 20px;
+  color: white;
+  width: 22ch;
+  height: 8vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 65rem;
+  top: 160px;
+  font-size: 1rem;
+  font-weight: 500;
 }
-.hero--container button {
-  margin: 0 auto;
+.heroimg {
+  z-index: 1;
+  position: relative;
+  width: 400px;
+  font-size: 2.1rem;
+  color: black;
+  bottom: 7px;
+  left: 22em;
 }
-.hero--container button svg {
-  width: 30px;
-  height: 40px;
-  cursor: pointer;
-}
-img {
-  width: 700px;
-  height: 70vh;
-  border-radius: 40px;
-}
-
 @media (max-width: 600px) {
-  .hero--container {
+  .header {
+    color: rgb(20, 15, 15);
+    z-index: 12;
+    position: relative;
+    font-size: 3.1rem;
+    line-height: 1.1;
+  }
+  .hero-section button {
     display: flex;
-    justify-content: space-evenly;
-    padding: 100px;
-    width: 100%;
-    margin-top: 29px;
+    justify-content: center;
+    align-items: center;
+    left: 13rem;
+    top: 190px;
+    width: 19ch;
+    font-size: 1rem;
+    font-weight: 500;
+    position: relative;
   }
-
-  .title {
-    display: flex;
-    margin: auto 20px;
-  }
-  .hero--container img {
-    height: 50vh;
-    width: 126%;
-
-    border-radius: 10px;
-    object-fit: fill;
-  }
-
-  .hero--container button {
-    padding: 0;
+  .heroimg {
+    z-index: 1;
+    position: relative;
+    width: 400px;
+    font-size: 1.7rem;
+    color: black;
+    top: 50px;
+    left: 2em;
   }
 }
