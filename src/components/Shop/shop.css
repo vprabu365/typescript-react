@@ -2,7 +2,7 @@ h1 {
   font-weight: 800;
   margin: 25px;
   text-align: center;
-  color: #d6c042;
+  color: #0f0d08;
 }
 .shop-container {
   display: flex;
@@ -23,7 +23,7 @@ h1 {
 .product img {
   height: 50vh;
   width: 22rem;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 @media screen and (max-width: 600px) {

@@ -9,7 +9,7 @@ const Shop = () => {
 
   return (
     <div>
-      <h1>Welcome</h1>
+      <h1>Enjoy Shopping!</h1>
       <MultiSelect />
       <div className="shop-container">
         {sortedProducts.map((product) => {
