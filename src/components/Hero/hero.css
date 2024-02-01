@@ -43,6 +43,12 @@
   left: 22em;
 }
 @media (max-width: 600px) {
+  .hero-section {
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 100vh;
+  }
   .header {
     color: rgb(20, 15, 15);
     z-index: 12;
@@ -50,11 +56,12 @@
     font-size: 3.1rem;
     line-height: 1.1;
   }
+
   .hero-section button {
     display: flex;
     justify-content: center;
     align-items: center;
-    left: 10rem;
+    left: 11.4rem;
     top: 190px;
     width: 19ch;
     font-size: 1rem;
